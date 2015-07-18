@@ -14,29 +14,19 @@
   float: right; }*/
 
 /* Jekyll Bootstrap Colors */
-h1, h2, h3, h4 {
-  color: #f22430;
-}
-
-body {
-    background-image: url(/assests/themes/customHome/images/bkg.jpg);
-}
-
-#mSearch {
-
-}
-
-#wSearch {
-
+title, h1, h2, h3, h4, p {
+  color: #ffcc00;
 }
 
 /* Sticky footer styles
 -------------------------------------------------- */
-
 html,
 body {
-  background-image: url("/assests/themes/customHome/images/bkg.jpg");  
-  height: 100%;
+  background-image: url("/assets/themes/customHome/images/bkg.jpg");  
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
   /* The html and body elements cannot have any padding or margin. */
 }
 
@@ -51,15 +41,57 @@ body {
   padding: 0 0 30px;
 }
 
+#mSearch {
+  background-image: url("/assets/themes/customHome/images/BarberStripes.jpg");
+  opacity: 0.8;
+  border-style: solid;
+  border-color: #ffcc00;
+}
+
+#mSearchContent h2 {
+    color: #ffcc00
+}
+#mSearchContent h3 {
+    color: #ffcc00
+}
+#mSearchContent label {
+    color: #ffcc00
+}
+
+#mSearchContent.btn {
+    background-color: #ffcc00
+}
+
+#wSearch {
+  background-image: url("/assets/themes/customHome/images/Beauty-3.jpg");
+  opacity: 0.8;
+  border-style: solid;
+  border-color: #ff66cc;
+}
+
+#wSearchContent h2 {
+    color: #ff66cc
+}
+#wSearchContent h3 {
+    color: #ff66cc
+
+}
+
+#wSearchContent label {
+    color: #ff66cc
+}
 /* Set the fixed height of the footer here */
 #footer {
   height: 30px;
-  background-color: #007A00;
+  background-color: #FFCC00;
+  opacity: 0.0;
 }
 
 #footer p {
   line-height: 30px;
   margin-bottom: 0px;
+  color: #ffcc00
+  
 }
 
 
