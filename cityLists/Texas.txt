@@ -1,2 +1,0 @@
-<option>Austin</option>
-<option>Killeen</option>
