@@ -32,15 +32,23 @@
       <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
     -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- CUSTOM INCLUDE FOR CITY LISTING -->
+    <!-- CUSTOM INCLUDE FOR CITY LISTING, COURTSEY https://css-tricks.com-->
     <script>
     $(function() {
         $("#state-choice").change(function() {
-                                 $("#city-choice").load("cityLists/" + $(this).val() + ".txt");
+            $("#city-choice").load("cityLists/" + $(this).val() + ".txt");
         });
     });
-    </script> 
-    <!-- atom & rss feed -->
+    </script>
+    <script>
+    $(function() {
+        $("#state-choice2").change(function() {
+            $("#city-choice2").load("cityLists/" + $(this).val() + ".txt");
+        });
+    });
+    </script>
+
+       <!-- atom & rss feed -->
     <link href="{{ BASE_PATH }}{{ site.JB.atom_path }}" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
     <link href="{{ BASE_PATH }}{{ site.JB.rss_path }}" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
 
