@@ -7,95 +7,7 @@
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-  <!--INCLUDE FOR ZIP CODE lookup, https://github.com/daspecster/ziptastic-jquery-plugin/blob/master/LICENSE-->
-    <script>
-    (function( @ ) {
-	var requests = {};
-	var zipValid = {
-		us: /[0-9]{5}(-[0-9]{4})?/
-	};
 
-	@.ziptastic2 = function(country, zip, callback){
-		// If only zip and callback are given default to US
-		if (arguments.length == 2 && typeof arguments[1] == 'function') {
-			callback = arguments[1];
-			zip = arguments[0];
-			country = 'US';
-		}
-
-		country = country.toUpperCase();
-		// Only make unique requests
-		if(!requests[country]) {
-			requests[country] = {};
-		}
-		if(!requests[country][zip]) {
-			requests[country][zip] = $.getJSON('https://zip.getziptastic.com/v2/' + country + '/' + zip);
-		}
-
-		// Bind to the finished request
-		requests[country][zip].done(function(data) {
-			if (typeof callback == 'function') {
-				callback(data.country, data.state, data.state_short, data.city, zip);
-			}
-		});
-
-		// Allow for binding to the deferred object
-		return requests[country][zip];
-	};
-
-	@.fn.ziptastic2 = function( options ) {
-		return this.each(function() {
-			var ele = $(this);
-
-			ele.on('keyup', function() {
-				var zip = ele.val();
-
-				// TODO Non-US zip codes?
-				if(zipValid.us.test(zip)) {
-					@.ziptastic2(zip, function(country, state, state_short, city) {
-						// Trigger the updated information
-						ele.trigger('zipChange', [country, state, state_short, city, zip]);
-					});
-				}
-			});
-		});
-	};
-})( jQuery );
-
-    </script>
-
-    <script type="text/javascript">
-    (function(@) {
-                @(function() {
-                    var duration = 500;
-                    var elements = {
-                        country: @('#country'),
-                        state: @('#state'),
-                        state_short: @('#state-short'),
-                        city: @('#city'),
-                        zip: @('#zip')
-                    }
-                    // Initially hide the city/state/zip
-                    elements.country.parent().hide();
-                    elements.state.parent().hide();
-                    elements.state_short.parent().hide();
-                    elements.city.parent().hide();
-                    // Initialize the ziptastic and bind to the change of zip code
-                    elements.zip.ziptastic2()
-                        .on('zipChange', function(evt, country, state, state_short, city, zip) {
-                            // Country
-                            //      elements.country.val(country).parent().show(duration);
-                            // State
-                            elements.state_short.val(state_short).parent().show(duration);
-                            elements.state.val(state).parent().show(duration);
-                            // City
-                            elements.city.val(city).parent().show(duration);
-                        });
-                });
-            }(jQuery));
-
-    </script>
-  
 </head>
 <body>
 
@@ -151,7 +63,7 @@
                 <option value = "UT">Utah</option>
                 <option value = "VT">Vermont</option>
                 <option value = "VA">Virgina</option>
-                <option value = "WA">Washington</option>
+                <option value = "WA">Washingtn</option>
                 <option value = "WV">West Virgina</option>
                 <option value = "WI">Wisconsin</option>
                 <option value = "WY">Wyoming</option>
@@ -171,30 +83,33 @@
         <h2>Please Enter A Zip Code</h2><h2>You Want To Search</h2>
 
         <form id="zipform2">
-            <label for="zip">
+            <label for="zipW">
     			Zip:
-    			<input type="text" id="zip" />
+    			<input type="text" id="zipW" />
     		</label>
 
-            <label for="city">
+            <label for="cityW">
                 City:
-                <input type="text" id="city" />
+                <input type="text" id="cityW" />
             </label>
 
-            <label for="state">
+            <label for="stateW">
                 State:
-                <input type="text" id="state" />
+                <input type="text" id="stateW" />
             </label>
 
-            <label for="state-short">
+            <label for="state-shortW">
                 State Short:
-                <input type="text" id="state-short" />
+                <input type="text" id="state-shortW" />
             </label>
 
-            <label for="country">
+            <label for="countryW">
                 Country:
-                <input type="text" id="country" />
+                <input type="text" id="countryW" />
             </label>
+            <br>
+
+            <button type="button" onclick="alert(CitySearcher)">Search</button>
         </form>
 
 </div>

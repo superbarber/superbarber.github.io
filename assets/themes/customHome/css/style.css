@@ -1,5 +1,6 @@
 html,
 body {
+    font-family: Verdana, Arial, Tahoma, Lucida, "Courier New", sans-serif;
   background-image: url("/assets/themes/customHome/images/bkg.jpg");  
   background-size: cover;
   background-repeat: no-repeat;
@@ -30,6 +31,8 @@ form .zip-wrap {
 #mSearch {
   background-image: url("/assets/themes/customHome/images/BarberStripes.jpg");
   opacity: 0.8;
+  border-width: thick;
+  font-family: Verdana, Arial, Tahoma, Lucida, "Courier New", sans-serif;
   border-style: solid;
   border-color: #ffcc00;
 }
@@ -61,21 +64,23 @@ form .zip-wrap {
 
 #wSearch {
   background-image: url("/assets/themes/customHome/images/Beauty-3.jpg");
+  border-width: thick;
+  font-family: Verdana, Arial, Tahoma, Lucida, "Courier New", sans-serif;
   opacity: 0.8;
   border-style: solid;
   border-color: #ff66cc;
 }
 
 #wSearchContent h2 {
-    color: #ff66cc
+    color: #009933
 }
 #wSearchContent h1 {
-    color: #ff66cc
+    color: #009933
 
 }
 
 #wSearchContent label {
-    color: #ff66cc
+    color: #009933
 }
 /* Set the fixed height of the footer here */
 #footer {
