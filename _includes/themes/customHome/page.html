@@ -1,9 +1,206 @@
-<div class="page-header">
-  <h1>{{ page.title }} {% if page.tagline %} <small>{{ page.tagline }}</small>{% endif %}</h1>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-<div class="row">
-  <div class="col-xs-12">
-    {{ content }}
-  </div>
-</div>
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Custom styles -->
+    <link href="assets/themes/customHome/css/style.css" rel="stylesheet" type="text/css" media="all">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <!-- Update these with your own images
+      <link rel="shortcut icon" href="images/favicon.ico">
+      -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <!-- CUSTOM INCLUDE FOR CITY LISTING, COURTSEY https://css-tricks.com-->
+    <script>
+    $(function() {
+        $("#state-choice").change(function() {
+            $("#city-choice").load("cityLists/" + $(this).val() + ".txt");
+        });
+    });
+    </script>
+    <script>
+    $(function() {
+        $("#state-choice2").change(function() {
+            $("#city-choice2").load("cityLists/" + $(this).val() + ".txt");
+        });
+    });
+    </script>
+
+    
+<!--INCLUDE FOR ZIP CODE lookup, https://github.com/daspecster/ziptastic-jquery-plugin/blob/master/LICENSE-->
+<script>
+    (function( $ ) {
+	var requests = {};
+	var zipValid = {
+		us: /[0-9]{5}(-[0-9]{4})?/
+	};
+
+	$.ziptastic = function(country, zip, callback){
+		// If only zip and callback are given default to US
+		if (arguments.length == 2 && typeof arguments[1] == 'function') {
+			callback = arguments[1];
+			zip = arguments[0];
+			country = 'US';
+		}
+
+		country = country.toUpperCase();
+		// Only make unique requests
+		if(!requests[country]) {
+			requests[country] = {};
+		}
+		if(!requests[country][zip]) {
+			requests[country][zip] = $.getJSON('https://zip.getziptastic.com/v2/' + country + '/' + zip);
+		}
+
+		// Bind to the finished request
+		requests[country][zip].done(function(data) {
+			if (typeof callback == 'function') {
+				callback(data.country, data.state, data.state_short, data.city, zip);
+			}
+		});
+
+		// Allow for binding to the deferred object
+		return requests[country][zip];
+	};
+
+	$.fn.ziptastic = function( options ) {
+		return this.each(function() {
+			var ele = $(this);
+
+			ele.on('keyup', function() {
+				var zip = ele.val();
+
+				// TODO Non-US zip codes?
+				if(zipValid.us.test(zip)) {
+					$.ziptastic(zip, function(country, state, state_short, city) {
+						// Trigger the updated information
+						ele.trigger('zipChange', [country, state, state_short, city, zip]);
+					});
+				}
+			});
+		});
+	};
+})( jQuery );
+
+    </script>
+
+    <script type="text/javascript">
+    (function($) {
+                $(function() {
+                    var duration = 500;
+                    var elements = {
+                        country: $('#country'),
+                        state: $('#state'),
+                        state_short: $('#state-short'),
+                        city: $('#city'),
+                        zip: $('#zip')
+                    }
+                    // Initially hide the city/state/zip
+                    elements.country.parent().hide();
+                    elements.state.parent().hide();
+                    elements.state_short.parent().hide();
+                    elements.city.parent().hide();
+                    // Initialize the ziptastic and bind to the change of zip code
+                    elements.zip.ziptastic()
+                        .on('zipChange', function(evt, country, state, state_short, city, zip) {
+                            // Country
+                            //      elements.country.val(country).parent().show(duration);
+                            // State
+                            elements.state_short.val(state_short).parent().show(duration);
+                            elements.state.val(state).parent().show(duration);
+                            // City
+                            elements.city.val(city).parent().show(duration);
+                        });
+                });
+            }(jQuery));
+
+    </script>
+
+    <script type="text/javascript">
+    (function($) {
+                $(function() {
+                    var duration = 500;
+                    var elements = {
+                        country: $('#countryW'),
+                        state: $('#stateW'),
+                        state_short: $('#state-shortW'),
+                        city: $('#cityW'),
+                        zip: $('#zipW')
+                    }
+                    // Initially hide the city/state/zip
+                    elements.country.parent().hide();
+                    elements.state.parent().hide();
+                    elements.state_short.parent().hide();
+                    elements.city.parent().hide();
+                    // Initialize the ziptastic and bind to the change of zip code
+                    elements.zip.ziptastic()
+                        .on('zipChange', function(evt, country, state, state_short, city, zip) {
+                            // Country
+                            //      elements.country.val(country).parent().show(duration);
+                            // State
+                            elements.state_short.val(state_short).parent().show(duration);
+                            elements.state.val(state).parent().show(duration);
+                            // City
+                            elements.city.val(city).parent().show(duration);
+                        });
+                });
+            }(jQuery));
+
+    </script>
+  </head>
+
+  <body>
+    <div id="wrap">
+
+        <!-- Navigation Bar -->
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="{{ HOME_PATH }}">Good Looking Out!</a>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav">
+                        <li><a href="{{ HOME_PATH }}">Home</a></li>
+                        <li><a href="{{ HOME_PATH }}/about/">About Us</a></li>
+                    <li><a href="{{ HOME_PATH }}/advertise/">Advertise Your Shop</a></li>
+                    <li><a href="{{ HOME_PATH }}/contact/">Contact Us</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Create An Account</a></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="row">
+            <div class="col-xs-12">
+                {{ content }}
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- Latest compiled and minified JavaScript, requires jQuery 1.x (2.x not supported in IE8) -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  </body>
+</html>

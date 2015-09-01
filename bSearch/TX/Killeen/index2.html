@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+     <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <!-- Custom styles -->
+    <style>
+        html,
+        body {
+            font-family: Verdana, Arial, Tahoma, Lucida, "Courier New", sans-serif;
+            background-image: url("/shopImgs/TX/Killeen/killeen-logo.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+        }
+
+        #shopImg {
+        max-width:100%;
+        max-height:100%;
+        float : left;
+        }
+
+        #newshop {
+            background-color: #000000;
+            opacity: 0.8;
+            border-width: thick;
+            font-family: Verdana, Arial, Tahoma, Lucida, "Courier New", sans-serif;
+            border-style: solid;
+            border-color: #0000cc;
+        }
+
+        #newshop h2, h3{
+            color: #ff0000;
+        }
+
+        .btn {
+            background-color: #ff0000;
+            opacity: 0.8;
+            border-color: #ff0000;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- My Added individual shop modules -->
+    <div class="container" id="newshop" name="This Shop">
+            <div class="row-fluid">
+                <div class="col-xs-3">
+                    <img id="shopImg" src="/shopImgs/photo_not_available.png">
+                </div>
+                <div class="col-xs-4">
+                    <h2>Your Shop Name</h2>
+                    <h3>Shop Address Line1<br>Shop Address Line2<br>City, ST zXXXXX<br>(254)1234567</h3>
+                </div>
+                <div class="col-xs-3">
+                    <h2>Hours Of Operation</h2>
+                    <h3>MON. 00:00 - 00:00<br>TUE. 00:00 - 00:00<br>WED. 00:00 - 00:00<br>THU. 00:00 - 00:00<br>FRI. 00:00 - 00:00<br>SAT. 00:00 - 00:00<br>SUN. 00:00 - 00:00</h3>
+                </div>
+                <div class="col-xs-2">
+                    <div class="btn-group-vertical">
+                        <a href="#" class="btn btn-info" role="button">Schedule Appointment</a><br>
+                        <a href="#" class="btn btn-info" role="button">View Pics</a><br>
+                        <a href="#" class="btn btn-info" role="button">Visit Site</a><br>
+                        <input type="submit" class="btn btn-info" value="Comment and Rank">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </body>
+</html>
+

@@ -1,23 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-     <!-- Enable responsive viewport -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-
-    <!-- Latest compiled JavaScript -->
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+---
+layout: siteList
+---
 
     <!-- Custom styles -->
     <style>
+
         html,
         body {
             font-family: Verdana, Arial, Tahoma, Lucida, "Courier New", sans-serif;
@@ -28,51 +15,121 @@
             background-position: center;
         }
 
+        html h2, h3, p {
+            color: #ff0000;
+        }
+
         #shopImg {
         max-width:100%;
         max-height:100%;
-        float : left;
+        float: left;
         }
 
-        #newshop {
-            background-color: #000000;
-            opacity: 0.8;
+        table, tr {
             border-width: thick;
             font-family: Verdana, Arial, Tahoma, Lucida, "Courier New", sans-serif;
             border-style: solid;
             border-color: #0000cc;
+            background-color: #000000;
+            opacity: 0.8;
         }
 
-        #newshop h2, h3{
+        .btn {
+            background-color: #ff0000;
+            opacity: 0.8;
+            border-color: #ff0000;
+        }
+
+        .navbar-inverse{
             color: #ff0000;
+            opacity: 0.8;
+            border-color: #0000cc;
+            border-width: thick;
+            background-color: #000000;
         }
-    </style>
-</head>
 
-<body>
-    <!-- My Added individual shop modules -->
-    <div class="container" id="newshop">
-            <div class="row-fluid">
-                <div class="col-xs-3">
+        .nav{
+            color: #ff0000;
+            opacity: 0.8;
+            border-color: #0000cc;
+            border-width: thick;
+            background-color: #000000;
+        }
+
+        .navbar-brand{
+            color: #ff0000;
+            opacity: 0.8;
+            border-color: #0000cc;
+            border-width: thick;
+            background-color: #000000;
+        }
+
+        .navbar{
+            color: #ff0000;
+            opacity: 0.8;
+            border-color: #0000cc;
+            border-width: thick;
+            background-color: #000000;
+        }
+
+    </style>
+
+
+    <!-- My Added individual shop modules, where each 'tr' starts new shop -->
+    <table id="shopTable" style="width:100%">
+            <tr id="newShop">
+                <td>
                     <img id="shopImg" src="/shopImgs/photo_not_available.png">
-                </div>
-                <div class="col-xs-3">
+                </td>
+                <td>
                     <h2>Your Shop Name</h2>
-                    <h3>Shop Name <br>Shop Address Line1<br>Shop Address Line2 <br>(254)1234567<br>shopUrl.something</h3>
-                </div>
-                <div class="col-xs-3">
+                    <h3>Shop Address Line1<br>Shop Address Line2<br>City, ST zXXXXX<br>(254)1234567</h3>
+                </td>
+                <td>
                     <h2>Hours Of Operation</h2>
                     <h3>MON. 00:00 - 00:00<br>TUE. 00:00 - 00:00<br>WED. 00:00 - 00:00<br>THU. 00:00 - 00:00<br>FRI. 00:00 - 00:00<br>SAT. 00:00 - 00:00<br>SUN. 00:00 - 00:00</h3>
-                </div>
-                <div class="col-xs-3">
-                </div>
-            </div>
-        </div>
+                </td>
+                <td>
+                    <div class="btn-group-vertical">
+                        <input type="submit" class="btn btn-info" value="Comment and Rank">
+                        <a href="#" class="btn btn-info" role="button">Schedule Appointment</a>
+                        <a href="#" class="btn btn-info" role="button">View Pics</a>
+                        <a href="#" class="btn btn-info" role="button">Visit Site</a>
+                    </div>
+                </td>
+                <td>
+
+                </td>
+            </tr>
+<!-- NEXT SHOP START ------------------------------>
+
+            <tr id="newShop2">
+                <td>
+                    <img id="shopImg" src="/shopImgs/photo_not_available.png">
+                </td>
+                <td>
+                    <h2>Test Shop</h2>
+                    <h3>Shop Address Line1<br>Shop Address Line2<br>City, ST zXXXXX<br>(254)1234567</h3>
+                </td>
+                <td>
+                    <h2>Hours Of Operation</h2>
+                    <h3>MON. 00:00 - 00:00<br>TUE. 00:00 - 00:00<br>WED. 00:00 - 00:00<br>THU. 00:00 - 00:00<br>FRI. 00:00 - 00:00<br>SAT. 00:00 - 00:00<br>SUN. 00:00 - 00:00</h3>
+                </td>
+                <td>
+                    <div class="btn-group-vertical">
+                        <input type="submit" class="btn btn-info" value="Comment and Rank">
+                        <a href="#" class="btn btn-info" role="button">Schedule Appointment</a>
+                        <a href="#" class="btn btn-info" role="button">View Pics</a>
+                        <a href="#" class="btn btn-info" role="button">Visit Site</a>
+                    </div>
+                </td>
+            </tr>
+<!-- NEXT SHOP START ------------------------------>
 
 
-    </body>
-</html>
 
+        </table>
+   
 
 
 
