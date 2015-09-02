@@ -13,9 +13,13 @@ html p, h1, h2 ,h3 {
     color: #ffcc00
 }
 
-#welcome h1{
-    color: #ffcc00
+#welcome {
+    color: #ffcc00;
+    background-color: #000000;
+    opacity: 0.8;
+    font-family: Verdana, Arial, Tahoma, Lucida, "Courier New", sans-serif;
 }
+
 
 
 /* Wrapper for page content to push down footer */
@@ -29,20 +33,10 @@ html p, h1, h2 ,h3 {
   padding: 0 0 30px;
 }
 
-/* Wrapper for page content to push down footer */
-#wrap2 {
-  
-  min-height: 100%;
-  height: auto;
-  /* Negative indent footer by its height */
-  margin: 0 auto -30px;
-  /* Pad bottom by footer height */
-  padding: 0 0 30px;
-}
-
 form .zip-wrap {
   display: block !important;
 }
+
 
 
 #mSearch {
@@ -99,6 +93,9 @@ form .zip-wrap {
 #wSearchContent label {
     color: #009933
 }
+
+
+
 /* Set the fixed height of the footer here */
 #footer {
   height: 30px;
