@@ -1,6 +1,18 @@
----
-theme :
-name : customHome
----
-{% include JB/setup %}
-{% include themes/customHome/default.html %}
+{% include homeTop.html %}
+<body>
+    <div id="wrap">
+{% include navbar.html %}
+
+
+        <div class="row">
+            <div class="col-xs-12">
+                {{ content }}
+            </div>
+        </div>
+
+    </div>
+
+
+    
+  </body>
+</html>
